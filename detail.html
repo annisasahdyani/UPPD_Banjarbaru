@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>UPPD Banjarbaru</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="icon" type="image/png" href="img/samsat.png">
+    
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid header position-relative overflow-hidden p-0">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <h1 class="display-6 text-primary m-0"> <img src="img/samsat.png" alt="Logo"> &nbsp;UPPD Banjarbaru
+                </h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="#beranda" class="nav-item nav-link active">Beranda</a>
+                    <a href="#berita" class="nav-item nav-link">Berita</a>
+                </div>
+            </div>
+        </nav>
+    <!-- Navbar & Hero End -->
+
+    <section id="berita">
+        <div class="container-fluid blog py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                    <h4 class="text-primary">Kegiatan</h4>
+                    <h1 class="display-5 mb-4">Berita Terbaru</h1>
+                </div>
+                <div class="row g-4 justify-content-center" id="berita-container">
+                    <!-- Card berita akan dimasukkan di sini -->
+                </div>
+                <div id="pagination-container" class="text-center mt-4">
+                    <!-- Tombol pagination akan dimasukkan di sini -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let currentPage = 1; // Halaman saat ini
+
+        // Fungsi untuk mengambil berita dari API
+        function getBerita(page = 1) {
+            fetch(`http://127.0.0.1:8000/api/index?page=${page}`) // Menggunakan parameter page
+                .then(response => response.json())
+                .then(data => {
+                    createCards(data.data);
+                    createPagination(data.meta); // Panggil fungsi untuk membuat navigasi pagination
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Fungsi untuk membuat card dan menambahkannya ke halaman
+        function createCards(beritaList) {
+            const container = document.querySelector('#berita-container'); // Ambil container tempat card ditampilkan
+            container.innerHTML = ''; // Kosongkan konten card sebelumnya
+
+            beritaList.forEach(berita => {
+                const card = document.createElement('div');
+                card.classList.add('col-md-6', 'col-lg-4', 'wow', 'fadeInUp');
+                // Menggunakan template literal untuk card HTML
+                card.innerHTML = `
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="http://127.0.0.1:8000/api/getImage?gambar=${berita.gambar}" class="img-fluid" alt="${berita.judul_berita}">
+                            <div class="blog-info">
+                                <span><i class="fa fa-clock"></i> ${new Date(berita.tanggal).toLocaleDateString('id-ID', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                        })}</span>
+                            </div>
+                        </div>
+                        <div class="blog-content text-dark border p-4 d-flex flex-column justify-content-between"  style="height: 100%;">
+                            <h5 class="mb-4">${berita.judul_berita}</h5>
+                            <p class="mb-4">${berita.isi_berita.replace(/<img[^>]*>/g, "")}</p>
+                            <a class="btn btn-light rounded-pill py-2 px-4" href="berita_detail.html?id=${berita.id}">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                `;
+                // Menambahkan card ke dalam container
+                container.appendChild(card);
+            });
+        }
+
+        // Fungsi untuk membuat navigasi pagination
+        function createPagination(meta) {
+            const paginationContainer = document.getElementById('pagination-container'); // Container untuk pagination
+            paginationContainer.innerHTML = ''; // Kosongkan konten pagination sebelumnya
+
+            // Membuat tombol untuk halaman sebelumnya
+            if (meta.current_page > 1) {
+                const prevButton = document.createElement('button');
+                prevButton.innerText = 'Sebelumnya';
+                prevButton.classList.add('btn', 'btn-primary', 'rounded-pill', 'py-2', 'px-4', 'me-2');
+                prevButton.onclick = () => {
+                    currentPage--;
+                    getBerita(currentPage); // Panggil kembali fungsi dengan halaman sebelumnya
+                };
+                paginationContainer.appendChild(prevButton);
+            }
+
+            // Membuat tombol untuk halaman berikutnya
+            if (meta.current_page < meta.last_page) {
+                const nextButton = document.createElement('button');
+                nextButton.innerText = 'Berikutnya';
+                nextButton.classList.add('btn', 'btn-primary', 'rounded-pill', 'py-2', 'px-4');
+                nextButton.onclick = () => {
+                    currentPage++;
+                    getBerita(currentPage); // Panggil kembali fungsi dengan halaman berikutnya
+                };
+                paginationContainer.appendChild(nextButton);
+            }
+        }
+        
+        // Panggil fungsi getBerita saat halaman dimuat
+        window.onload = () => getBerita(currentPage);
+    </script>
+
+    <!-- Footer Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                <div class="col-12 text-center">
+                    <span class="text-white">&copy; 2024 - Unit Pelayanan Pendapatan Daerah Kota Banjarbaru</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
