@@ -836,51 +836,51 @@
 
 
 /*** Blog Start ***/
-.blog .blog-item {
+.blog-item {
+    display: flex; /* Menggunakan Flexbox */
+    flex-direction: column; /* Mengatur arah menjadi kolom */
     border-radius: 10px;
-}
-
-.blog .blog-item .blog-img {
-    position: relative;
     overflow: hidden;
-    background: rgba(102, 16, 242, 0.2);
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    height: 100%; /* Memastikan semua card dapat tumbuh untuk menyesuaikan tinggi */
 }
 
-.blog .blog-item .blog-img .blog-info {
-    
-    position: absolute;
+.blog-item:hover {
+    transform: translateY(-5px);
+}
+
+.blog-img img {
     width: 100%;
-    height: 100%;
-    bottom: 0;
-    left: 0;
-    padding: 20px;
-    background: rgba(102, 16, 242, 0.2);
-    color: var(--bs-white) !important;
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
-    transition: 0.5s;
+    height: 200px; /* Atur tinggi yang diinginkan */
+    object-fit: cover; /* Gambar tetap terpotong */
+    object-position: center; /* Gambar di tengah */
 }
 
-.blog .blog-item .blog-img:hover .blog-info {
-    background: rgba(0, 0, 0, .4);
+.blog-content {
+    flex-grow: 1; /* Mengizinkan konten untuk mengambil ruang kosong */
+    background: #fff; /* Latar belakang konten */
+    border-top: 2px solid #007bff; /* Garis di atas konten */
+    padding: 1.5rem; /* Ubah padding sesuai kebutuhan */
+    
 }
 
-
-.blog .blog-item .blog-content {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+.blog-content h5 {
+    font-size: 1.2rem; /* Ubah ukuran judul sesuai kebutuhan */
+    color: #333;
 }
 
-.blog .blog-item .blog-img img {
-    transition: 0.5s;
+.blog-content p {
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* white-space: nowrap; */
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Menentukan jumlah baris */
+    -webkit-box-orient: vertical;
+    white-space: normal; /* Membuat teks bisa memanjang ke beberapa baris */
 }
 
-.blog .blog-item .blog-img:hover img {
-    transform: scale(1.3);
-}
 /*** Blog End ***/
 
 
@@ -1186,6 +1186,9 @@
 
 .footer .footer-item p {
     line-height: 35px;
+}
+#berita {
+    display: block; /* Pastikan section terlihat */
 }
 
 .footer .footer-item a:hover {

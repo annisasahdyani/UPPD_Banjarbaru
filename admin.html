@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Daftar Berita</title>
+
+    <style>
+      /* CSS untuk Sidebar */
+      .sidebar {
+        height: 100vh;
+        background-color: #343a40;
+        padding: 15px;
+      }
+
+      .sidebar a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      .sidebar a:hover {
+        background-color: #495057;
+      }
+
+      .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      /* Tambahan untuk styling sidebar berita */
+      .sidebar-header {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .news-item {
+        margin-bottom: 5px;
+      }
+
+      .news-item a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .news-item a:hover {
+        text-decoration: underline;
+      }
+    </style>
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome for Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="sidebar col-12 col-md-3 flex-shrink-0">
+          <h4 class="text-white">Menu Admin</h4>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="tambah_berita.html">Buat Berita Baru</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin.html">Lihat Berita</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout.html">Logout</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Konten Utama -->
+        <div id="content" class="col-12 col-md-9 mt-4">
+          <h2 class="mb-4">Daftar Berita</h2>
+
+          <!-- Tombol Refresh -->
+          <button id="refreshButton" class="btn btn-primary mb-3">
+            <i class="fas fa-sync-alt"></i> Refresh
+          </button>
+
+          <!-- Tabel untuk menampilkan daftar berita -->
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Judul Berita</th>
+                <th>Tanggal</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="beritaTableBody">
+              <!-- Data berita akan diisi di sini oleh JavaScript -->
+            </tbody>
+          </table>
+
+          <!-- Pagination -->
+          <nav>
+            <ul class="pagination" id="pagination">
+              <!-- Pagination links akan diisi oleh JavaScript -->
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+      // Function to create pagination
+      function createPagination(meta) {
+        const paginationContainer = document.getElementById("pagination");
+
+        // Kosongkan pagination sebelum menambah data baru
+        paginationContainer.innerHTML = "";
+
+        // Loop melalui link pagination dari response meta
+        meta.links.forEach(function (link) {
+          const paginationItem = document.createElement("li");
+          paginationItem.classList.add("page-item");
+
+          // Tambahkan kondisi untuk label aktif
+          if (link.active) {
+            paginationItem.classList.add("active");
+          }
+
+          // Cegah penambahan class kosong atau undefined
+          if (link.url) {
+            const paginationLink = document.createElement("a");
+            paginationLink.classList.add("page-link");
+            paginationLink.href = link.url;
+            paginationLink.innerHTML = link.label;
+
+            // Tambahkan event listener untuk mengubah halaman tanpa reload
+            paginationLink.addEventListener("click", function (event) {
+              event.preventDefault();
+              fetchBerita(link.url); // Fetch data untuk halaman yang diklik
+            });
+
+            paginationItem.appendChild(paginationLink);
+          } else {
+            const paginationSpan = document.createElement("span");
+            paginationSpan.classList.add("page-link");
+            paginationSpan.innerHTML = link.label;
+            paginationItem.appendChild(paginationSpan);
+          }
+
+          paginationContainer.appendChild(paginationItem);
+        });
+      }
+
+      // Function to fetch berita and handle pagination
+      function fetchBerita(url = "http://127.0.0.1:8000/api/index?page=1") {
+        axios
+          .get(url) // Sesuaikan dengan API backend Anda
+          .then(function (response) {
+            const beritaList = response.data.data;
+            const meta = response.data.meta;
+            console.log(beritaList);
+            const tableBody = document.getElementById("beritaTableBody");
+
+            // Kosongkan isi tabel sebelum menambah data baru
+            tableBody.innerHTML = "";
+
+            // Loop melalui data berita dan tambahkan ke tabel
+            beritaList.forEach(function (berita) {
+              const row = document.createElement("tr");
+              const judulBeritaCell = document.createElement("td");
+              const tanggalCell = document.createElement("td");
+              const actionCell = document.createElement("td");
+
+              // Isi judul berita dan tanggal
+              judulBeritaCell.textContent = berita.judul_berita;
+              tanggalCell.textContent = new Date(
+                berita.created_at
+              ).toLocaleDateString();
+
+              // Tambahkan ikon edit dan hapus
+              actionCell.innerHTML = `
+                            <a href="/update.html?id=${berita.id}" class="btn btn-sm btn-primary">Edit</a>
+                            <button class="btn btn-sm btn-danger" onclick="deleteBerita(${berita.id})">Hapus</button>
+                        `;
+
+              row.appendChild(judulBeritaCell);
+              row.appendChild(tanggalCell);
+              row.appendChild(actionCell);
+
+              tableBody.appendChild(row);
+            });
+
+            // Buat pagination
+            createPagination(meta);
+          })
+          .catch(function (error) {
+            console.error("Error fetching berita:", error);
+            alert("Gagal memuat data berita.");
+          });
+      }
+
+      // Panggil fetchBerita saat halaman dimuat
+      document.addEventListener("DOMContentLoaded", function () {
+        fetchBerita(); // Memuat halaman pertama secara default
+      });
+    </script>
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

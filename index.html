@@ -28,6 +28,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -309,16 +310,12 @@
 
 
     <!-- News Start -->
-    <section id="berita">
+    <!-- <section id="berita">
         <div class="container-fluid blog py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                     <h4 class="text-primary">Kegiatan </h4>
                     <h1 class="display-5 mb-4">Berita Terbaru</h1>
-                    <!-- <p class="mb-0">Dolor sit amet consectetur, adipisicing elit. Ipsam, beatae maxime. Vel animi eveniet
-                    doloremque reiciendis soluta iste provident non rerum illum perferendis earum est architecto dolores
-                    vitae quia vero quod incidunt culpa corporis, porro doloribus. Voluptates nemo doloremque cum.
-                </p> -->
                 </div>
                 <div class="row g-4 justify-content-center">
                     <div class="col-md-6 col-lg-4 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
@@ -327,10 +324,6 @@
                                 <img src="img\murdjani.jpeg" class="img-fluid w-100" alt="">
                                 <div class="blog-info">
                                     <span><i class="fa fa-clock"></i> 01 September 2024</span>
-                                    <!-- <div class="d-flex">
-                                    <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                    <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
-                                </div> -->
                                 </div>
                             </div>
                             <div class="blog-content text-dark border p-4 ">
@@ -399,9 +392,86 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- News End -->
+    
+    <section id="berita">
+        <div class="container-fluid blog py-5">
+            <div class="container py-5">
+                <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                    <h4 class="text-primary">Kegiatan</h4>
+                    <h1 class="display-5 mb-4">Berita Terbaru</h1>
+                </div>
+                <div class="row g-4 justify-content-center" id="berita-container">
+                    <!-- Card berita akan dimasukkan di sini -->
+                </div>
+                <div class="text-center">
+                    <a href="detail.html" class="btn btn-primary rounded-pill py-2 px-4 mt-4">Lihat Selengkapnya</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        
+       // Fungsi untuk mengambil semua berita dari API
+function getBerita() {
+    fetch('http://127.0.0.1:8000/api/beritaAwal')
+        .then(response => response.json())
+        .then(data => {
+            // Panggil fungsi untuk membuat card dari data berita
+            createCards(data.data);
+        })
+        .catch(error => console.error('Error:', error));
+}
 
+// Fungsi untuk membuat card dan menambahkannya ke halaman
+function createCards(beritaList) {
+    const container = document.querySelector('#berita-container'); // Ambil container tempat card ditampilkan
+    container.innerHTML = ''; // Kosongkan konten card sebelumnya
+
+    beritaList.forEach(berita => {
+        // Membuat card
+        const card = document.createElement('div');
+        card.classList.add('col-md-6', 'col-lg-4', 'col-xl-3', 'wow', 'fadeInUp');
+        card.header =`<div class="container py-5">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+            <h4 class="text-primary">Kegiatan </h4>
+            <h1 class="display-5 mb-4">Berita Terbaru</h1>
+        </div>`;
+        // Menggunakan template literal untuk card HTML
+        card.innerHTML = `
+            <div class="blog-item">
+                <div class="blog-img">
+                    <img src="http://127.0.0.1:8000/api/getImage?gambar=${berita.gambar}" class="img-fluid" alt="${berita.judul_berita}">
+                    <div class="blog-info">
+                        <span><i class="fa fa-clock"></i> ${new Date(berita.tanggal).toLocaleDateString('id-ID', {
+                            day: 'numeric',
+                            month: 'long',
+                            year: 'numeric'
+                        })}</span>
+                    </div>
+                </div>
+                <div class="blog-content text-dark border p-4">
+                    <h5 class="mb-4">${berita.judul_berita}</h5>
+                    <p class="mb-4">${berita.isi_berita.substring(0, 100)}...</p>
+                    <a class="btn btn-light rounded-pill py-2 px-4" href="berita_detail.html?id=${berita.id}">Baca Selengkapnya</a>
+                </div>
+            </div>
+        `;
+
+        // Menambahkan card ke dalam container
+        container.appendChild(card);
+    });
+}
+
+
+
+// Panggil fungsi getBerita saat halaman dimuat
+window.onload = getBerita;
+
+    </script>
+    
+    
     <!-- Contact Section -->
     <section id="kontak" class="contact section">
 

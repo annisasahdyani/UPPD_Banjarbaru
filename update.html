@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Berita</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Summernote CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      .form-label {
+        font-weight: bold;
+      }
+
+      .form-control {
+        margin-bottom: 15px;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        border: none;
+      }
+
+      .sidebar {
+        height: 100vh;
+        background-color: #343a40;
+        padding: 15px;
+      }
+
+      .sidebar a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      .sidebar a:hover {
+        background-color: #495057;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="d-flex">
+      <!-- Sidebar -->
+      <div class="sidebar flex-shrink-0">
+        <h4 class="text-white">Menu Admin</h4>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="tambah_berita.html">Buat Berita Baru</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="lihat_berita.html">Lihat Berita</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+    <div class="container">
+      <h2 class="text-center mb-4">Update Berita</h2>
+
+      <form id="beritaForm" enctype="multipart/form-data">
+        <!-- Judul Berita -->
+        <div class="mb-3">
+          <label for="judul_berita" class="form-label">Judul Berita</label>
+          <input
+            type="text"
+            class="form-control"
+            id="judul_berita"
+            name="judul_berita"
+            placeholder="Masukkan judul berita"
+          />
+        </div>
+
+        <!-- Tanggal Berita -->
+        <div class="mb-3">
+          <label for="tanggal" class="form-label">Tanggal Berita</label>
+          <input type="date" class="form-control" id="tanggal" name="tanggal" />
+        </div>
+
+        <!-- Gambar Berita -->
+        <div class="mb-3">
+          <label for="gambar" class="form-label">Upload Gambar Berita</label>
+          <input
+            type="file"
+            class="form-control"
+            id="gambar"
+            name="gambar"
+            accept="image/*"
+          />
+        </div>
+
+        <!-- Isi Berita (Summernote) -->
+        <div class="mb-3">
+          <label for="isi-berita" class="form-label">Isi Berita</label>
+          <textarea
+            id="summernote"
+            name="isi_berita"
+            class="form-control"
+            placeholder="Masukkan isi berita"
+          ></textarea>
+        </div>
+
+        <!-- Tombol Submit -->
+        <button type="submit" class="btn btn-primary w-100">
+          Update Berita
+        </button>
+      </form>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Summernote JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
+
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        // Inisialisasi Summernote
+        $("#summernote").summernote({
+          height: 200, // Tinggi editor
+          placeholder: "Masukkan isi berita di sini...",
+          tabsize: 2,
+        });
+
+        // Mendapatkan ID Berita dari URL
+        const params = new URLSearchParams(window.location.search);
+        const beritaId = params.get("id");
+        // console.log(beritaId);
+
+        // Ambil data berita berdasarkan ID untuk mengisi form
+        if (beritaId) {
+          axios
+            .get(`http://127.0.0.1:8000/api/berita/${beritaId}`)
+            .then(function (response) {
+              const berita = response.data;
+              //   console.log(berita);
+              $("#judul_berita").val(berita.judul_berita);
+              $("#tanggal").val(berita.tanggal);
+              $("#summernote").summernote("code", berita.isi_berita);
+            })
+            .catch(function (error) {
+              console.error("Error fetching berita:", error);
+            });
+        }
+
+        // Handle form submission untuk update berita
+        $("#beritaForm").on("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
+
+          const form = document.getElementById("beritaForm");
+          const formData = new FormData(form);
+          const payload = [...formData];
+
+          console.log(payload);
+
+          // Kirim data menggunakan Axios untuk update
+          axios
+            .post(
+              `http://127.0.0.1:8000/api/update/berita/${beritaId}`,
+              formData,
+              {
+                headers: {
+                  "Content-Type": "multipart/form-data",
+                },
+              }
+            )
+            .then(function (response) {
+              console.log(response.data);
+              alert("Berita berhasil diupdate!");
+              // Redirect atau refresh halaman setelah update berhasil
+              window.location.href = "admin.html";
+            })
+            .catch(function (error) {
+              console.error("Error updating berita:", error.response.data);
+              alert("Gagal mengupdate berita: " + error.response.data.message);
+            });
+        });
+      });
+    </script>
+  </body>
+</html>
