@@ -28,7 +28,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    
+
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
@@ -60,8 +60,21 @@
                         </div>
                     </div>
                     <a href="#jadwalpelayanan" class="nav-link">Jadwal Pelayanan</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Pelayanan Kesamsatan</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="mutasi.html" class="dropdown-item"> Mutasi / Balik Nama</a>
+                            <a href="tahunan.html" class="dropdown-item"> Pajak Tahunan </a>
+                            <a href="5tahunan.html" class="dropdown-item"> Pajak 5 Tahunan</a>
+                            <a href="ubahnopol.html" class="dropdown-item"> Perubahan NOPOL BPKB</a>
+                            <a href="tarifPNBP.html" class="dropdown-item"> Tarif PNBP (Di Luar Pajak) </a>
+                            <a href="simulasiPKB.html" class="dropdown-item"> Simulasi Tunggakan PKB Non Progresif</a>
+                        </div>
+                    </div>
                     <a href="#berita" class="nav-item nav-link">Berita</a>
                     <a href="#kontak" class="nav-item nav-link">Kontak</a>
+                    <a href="#pengaduan" class="nav-item nav-link">Pengaduan</a>
+
                 </div>
             </div>
         </nav>
@@ -254,7 +267,7 @@
                     <h1 class="display-5 mb-4">Jadwal Pelayanan</h1>
                 </div>
                 <div class="row g-5 justify-content-center">
-                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="price-item bg-light rounded text-center">
                             <div class="text-center text-primary border-bottom d-flex flex-column justify-content-center p-4"
                                 style="width: 100%; height: 160px;">
@@ -270,7 +283,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="price-item bg-light rounded text-center">
                             <div class="text-center text-primary border-bottom d-flex flex-column justify-content-center p-4"
                                 style="width: 100%; height: 160px;">
@@ -286,7 +299,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="price-item bg-light rounded text-center">
                             <div class="text-center text-secondary border-bottom d-flex flex-column justify-content-center p-4"
                                 style="width: 100%; height: 160px;">
@@ -302,10 +315,30 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="price-item bg-light rounded text-center">
+                            <div class="text-center text-secondary border-bottom d-flex flex-column justify-content-center p-4"
+                                style="width: 100%; height: 160px;">
+                                <p class="fs-2 fw-bold text-uppercase mb-0">SAMSAT ANTAR JEMPUT</p>
+                                <p class="fs-6 text-muted mt-2">
+                                    <i class="fab fa-whatsapp text-success me-2"></i>WA Blast : 082194491771
+                                </p>
+                            </div>
+                            <div class="text-start p-5">
+                                <p><i class="fas fa-check text-success me-1"></i> Senin s.d Kamis</p>
+                                <p><i class="text-success me-1"></i> 08.00 - 14.00 WITA</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Jum'at</p>
+                                <p><i class="text-success me-1"></i> 08.00 - 11.00 WITA</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Sabtu</p>
+                                <p><i class="text-success me-1"></i> 08.00 - 12.00 WITA </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Jadwal Pelayanan End -->
 
 
@@ -394,13 +427,13 @@
         </div>
     </section> -->
     <!-- News End -->
-    
+
     <section id="berita">
         <div class="container-fluid blog py-5">
             <div class="container py-5">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                    <h4 class="text-primary">Kegiatan</h4>
-                    <h1 class="display-5 mb-4">Berita Terbaru</h1>
+                    <h4 class="text-primary">Kegiatan Terbaru</h4>
+                    <h1 class="display-5 mb-4">Berita</h1>
                 </div>
                 <div class="row g-4 justify-content-center" id="berita-container">
                     <!-- Card berita akan dimasukkan di sini -->
@@ -412,43 +445,43 @@
         </div>
     </section>
     <script>
-        
-       // Fungsi untuk mengambil semua berita dari API
-function getBerita() {
-    fetch('http://127.0.0.1:8000/api/beritaAwal')
-        .then(response => response.json())
-        .then(data => {
-            // Panggil fungsi untuk membuat card dari data berita
-            createCards(data.data);
-        })
-        .catch(error => console.error('Error:', error));
-}
 
-// Fungsi untuk membuat card dan menambahkannya ke halaman
-function createCards(beritaList) {
-    const container = document.querySelector('#berita-container'); // Ambil container tempat card ditampilkan
-    container.innerHTML = ''; // Kosongkan konten card sebelumnya
+        // Fungsi untuk mengambil semua berita dari API
+        function getBerita() {
+            fetch('http://127.0.0.1:8000/api/beritaAwal')
+                .then(response => response.json())
+                .then(data => {
+                    // Panggil fungsi untuk membuat card dari data berita
+                    createCards(data.data);
+                })
+                .catch(error => console.error('Error:', error));
+        }
 
-    beritaList.forEach(berita => {
-        // Membuat card
-        const card = document.createElement('div');
-        card.classList.add('col-md-6', 'col-lg-4', 'col-xl-3', 'wow', 'fadeInUp');
-        card.header =`<div class="container py-5">
+        // Fungsi untuk membuat card dan menambahkannya ke halaman
+        function createCards(beritaList) {
+            const container = document.querySelector('#berita-container'); // Ambil container tempat card ditampilkan
+            container.innerHTML = ''; // Kosongkan konten card sebelumnya
+
+            beritaList.forEach(berita => {
+                // Membuat card
+                const card = document.createElement('div');
+                card.classList.add('col-md-6', 'col-lg-4', 'col-xl-3', 'wow', 'fadeInUp');
+                card.header = `<div class="container py-5">
         <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
             <h4 class="text-primary">Kegiatan </h4>
             <h1 class="display-5 mb-4">Berita Terbaru</h1>
         </div>`;
-        // Menggunakan template literal untuk card HTML
-        card.innerHTML = `
+                // Menggunakan template literal untuk card HTML
+                card.innerHTML = `
             <div class="blog-item">
                 <div class="blog-img">
                     <img src="http://127.0.0.1:8000/api/getImage?gambar=${berita.gambar}" class="img-fluid" alt="${berita.judul_berita}">
                     <div class="blog-info">
                         <span><i class="fa fa-clock"></i> ${new Date(berita.tanggal).toLocaleDateString('id-ID', {
-                            day: 'numeric',
-                            month: 'long',
-                            year: 'numeric'
-                        })}</span>
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                })}</span>
                     </div>
                 </div>
                 <div class="blog-content text-dark border p-4">
@@ -459,130 +492,140 @@ function createCards(beritaList) {
             </div>
         `;
 
-        // Menambahkan card ke dalam container
-        container.appendChild(card);
-    });
-}
+                // Menambahkan card ke dalam container
+                container.appendChild(card);
+            });
+        }
 
 
 
-// Panggil fungsi getBerita saat halaman dimuat
-window.onload = getBerita;
+        // Panggil fungsi getBerita saat halaman dimuat
+        window.onload = getBerita;
 
     </script>
-    
-    
+
+
     <!-- Contact Section -->
     <section id="kontak" class="contact section">
-
-        <!-- Section Title -->
         <div class="container py-5">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width : 900x">
-                <h4 class="text-primary">Pengaduan</h4>
-                <h1 class="display-5 mb-4" style="text-align: center;">Kontak Kami</h1>
-                <!-- End Section Title -->
 
-                <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <!-- Kontak Kami Section -->
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                <h4 class="text-primary">Hubungi Kami</h4>
+                <h1 class="display-5 mb-4" style="text-align: center;">Kontak</h1>
+            </div>
 
-                    <div class="row gy-4">
-
-                        <div class="col-lg-3 col-md-6">
-                            <div class="info-item d-flex flex-column justify-content-center align-items-center"
-                                data-aos="fade-up" data-aos-delay="300">
-                                <i class="bi bi-geo-alt"></i>
-                                <h3>Alamat</h3>
-                                <p>Jln. Pangeran Suriansyah No. 9</p>
-                            </div>
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="info-item d-flex flex-column justify-content-center align-items-center"
+                            data-aos="fade-up" data-aos-delay="300" style="min-height: 200px;">
+                            <i class="bi bi-telephone"></i>
+                            <h3>Informasi</h3>
+                            <p>(0511) 591 678 6 Hanya Informasi</p>
+                            <p>0821-9449-1771 WhatsApp Blast</p>
                         </div>
-
-                        <div class="col-lg-3 col-md-6">
-                            <a href="https://www.instagram.com/samsatbjb.info" target="_blank"
-                                class="info-item link-no-change d-flex flex-column justify-content-center align-items-center"
-                                data-aos="fade-up" data-aos-delay="300">
-                                <i class="bi bi-instagram"></i>
-                                <h3>Instagram</h3>
-                                <p>@samsatbjb.info</p>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-3 col-md-6">
-                            <div class="info-item d-flex flex-column justify-content-center align-items-center"
-                                data-aos="fade-up" data-aos-delay="300">
-                                <i class="bi bi-telephone"></i>
-                                <h3>Hallo Samsat</h3>
-                                <p>(0511) 591 678 6 Hanya Informasi</p>
-                            </div>
-                        </div><!-- End Info Item -->
-
-                        <div class="col-lg-3 col-md-6">
-                            <div class="info-item d-flex flex-column justify-content-center align-items-center"
-                                data-aos="fade-up" data-aos-delay="400">
-                                <i class="bi bi-envelope"></i>
-                                <h3>Email</h3>
-                                <p>samsatbjbinfo@gmail.com</p>
-                            </div>
-                        </div><!-- End Info Item -->
-
                     </div>
 
-                    <div class="row gy-4 mt-1">
-                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31873.932506158227!2d114.81530701729147!3d-3.439458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de68174b1f3778d%3A0x4ab5b45170233731!2sSamsat%20Banjarbaru!5e0!3m2!1sen!2sid!4v1693998889273!5m2!1sen!2sid"
-                                frameborder="0" style="border:0; width: 100%; height: 400px;" allowfullscreen=""
-                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-                        </div><!-- End Google Maps -->
-
-                        <div class="col-lg-6">
-                            <form action="https://formsubmit.co/annisasalsabila60@gmail.com" method="POST"
-                                class="php-email-form" data-aos="fade-up" data-aos-delay="400">
-                                <div class="row gy-4">
-
-                                    <div class="col-md-6">
-                                        <input type="text" name="name" class="form-control" placeholder="Your Name"
-                                            required="">
-                                    </div>
-
-                                    <div class="col-md-6 ">
-                                        <input type="email" class="form-control" name="email" placeholder="Your Email"
-                                            required="">
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <input type="text" class="form-control" name="subject" placeholder="Subject"
-                                            required="">
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <textarea class="form-control" name="message" rows="6" placeholder="Message"
-                                            required=""></textarea>
-                                    </div>
-
-                                    <button type="submit" class="btn btn-light rounded-pill text-primary py-2 px-2">Send
-                                        Message</button>
-                                    <!-- diatas ini masih blm pasti-->
-
-                                    <!-- <a href="#" class="btn btn-light rounded-pill text-primary py-2 px-2">Send
-                                        Message</a> -->
-
-
-                                    <!-- <div class="col-md-12 text-center">
-                                        <div class="loading">Loading</div>
-                                        <div class="error-message"></div>
-                                        <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                                        <button type="submit">Send Message</button>
-                                    </div> -->
-
-                                </div>
-                            </form>
-                        </div><!-- End Contact Form -->
-
+                    <div class="col-lg-3 col-md-6">
+                        <a href="https://www.instagram.com/samsatbjb.info" target="_blank"
+                            class="info-item link-no-change d-flex flex-column justify-content-center align-items-center"
+                            data-aos="fade-up" data-aos-delay="300" style="min-height: 200px;">
+                            <i class="bi bi-instagram"></i>
+                            <h3>Instagram</h3>
+                            <p>@samsatbjb.info</p>
+                            <p> </p>
+                        </a>
                     </div>
 
+                    <div class="col-lg-3 col-md-6">
+                        <a href="https://www.facebook.com/samsat.banjarbaru.73/" target="_blank"
+                            class="info-item link-no-change d-flex flex-column justify-content-center align-items-center"
+                            data-aos="fade-up" data-aos-delay="300" style="min-height: 200px;">
+                            <i class="bi bi-facebook"></i>
+                            <h3>Facebook</h3>
+                            <p>Samsat Banjarbaru</p>
+                            <p> </p>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="info-item d-flex flex-column justify-content-center align-items-center"
+                            data-aos="fade-up" data-aos-delay="400" style="min-height: 200px;">
+                            <i class="bi bi-envelope"></i>
+                            <h3>Email</h3>
+                            <p>samsatbjbinfo@gmail.com</p>
+                            <p> </p>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
+            <!-- Lokasi Section -->
+            <!-- <div class="text-center mx-auto mb-5 mt-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                <h4 class="text-primary">Lokasi</h4>
+                <h1 class="display-5 mb-4" style="text-align: center;">Lokasi Kami</h1>
+            </div> -->
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4 mt-1">
+                    <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31873.932506158227!2d114.81530701729147!3d-3.439458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de68174b1f3778d%3A0x4ab5b45170233731!2sSamsat%20Banjarbaru!5e0!3m2!1sen!2sid!4v1693998889273!5m2!1sen!2sid"
+                            frameborder="0" style="border:0; width: 100%; height: 400px;" allowfullscreen=""
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Pengaduan Section -->
+    <section id="pengaduan" class="pengaduan section">
+        <div class="container py-5">
+            <div class="text-center mx-auto mb-5 mt-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                <h4 class="text-primary">Ajukan Pengaduan</h4>
+                <h1 class="display-5 mb-4" style="text-align: center;">Pengaduan</h1>
+            </div>
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row gy-4">
+                    <div class="col-lg-12">
+                        <form action="https://formsubmit.co/annisasalsabila60@gmail.com" method="POST"
+                            class="php-email-form" data-aos="fade-up" data-aos-delay="400">
+                            <div class="row gy-4">
+
+                                <div class="col-md-6">
+                                    <input type="text" name="name" class="form-control" placeholder="Nama"
+                                        required="">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" name="email" placeholder="Email"
+                                        required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <input type="text" class="form-control" name="subject" placeholder="Subject"
+                                        required="">
+                                </div>
+
+                                <div class="col-md-12">
+                                    <textarea class="form-control" name="message" rows="6" placeholder="Pesan"
+                                        required=""></textarea>
+                                </div>
+
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-light rounded-pill text-primary py-2 px-4">Kirim Pesan
+                                    </button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- /Contact Section -->
 

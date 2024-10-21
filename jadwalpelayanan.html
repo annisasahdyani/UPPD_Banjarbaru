@@ -49,9 +49,7 @@
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent px-4 px-lg-5 py-3 py-lg-0">
             <a href="index.html" class="navbar-brand p-0">
-                <h1 class="display-6 text-primary m-0"> <img src="img/samsat.png" alt="Logo"> &nbsp;UPPD Banjarbaru
-                </h1>
-                <!-- <img src="img/logo.png" alt="Logo"> -->
+                <h1 class="display-6 text-primary m-0"> <img src="img/samsat.png" alt="Logo"> &nbsp;UPPD Banjarbaru</h1>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span class="fa fa-bars"></span>
@@ -61,17 +59,28 @@
                     <a href="index.html" class="nav-item nav-link">Beranda</a>
 
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle active">Profil</a>
+                        <a href="#profil" class="nav-link dropdown-toggle">Profil</a>
                         <div class="dropdown-menu m-0">
                             <a href="motto.html" class="dropdown-item"> Motto </a>
                             <a href="visimisi.html" class="dropdown-item"> Visi Misi </a>
                             <a href="maklumat.html" class="dropdown-item"> Maklumat </a>
                         </div>
                     </div>
-                    <a href="service.html" class="nav-item nav-link">Berita</a>
-                    <a href="jadwalpelayanan.html" class="nav-item nav-link">Jadwal Pelayanan</a>
+                    <a href="jadwalpelayanan.html" class="nav-item nav-link active">Jadwal Pelayanan</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Pelayanan Kesamsatan</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="mutasi.html" class="dropdown-item"> Mutasi / Balik Nama</a>
+                            <a href="tahunan.html" class="dropdown-item"> Pajak Tahunan </a>
+                            <a href="5tahunan.html" class="dropdown-item"> Pajak 5 Tahunan</a>
+                            <a href="ubahnopol.html" class="dropdown-item"> Perubahan NOPOL BPKB</a>
+                            <a href="tarifPNBP.html" class="dropdown-item"> Tarif PNBP (Di Luar Pajak) </a>
+                            <a href="simulasiPKB.html" class="dropdown-item"> Simulasi Tunggakan PKB Non Progresif</a>
+                        </div>
+                    </div>
+                    <a href="#berita" class="nav-item nav-link">Berita</a>
                     <a href="#kontak" class="nav-item nav-link">Kontak</a>
-
+                    <a href="pengaduan.html" class="nav-item nav-link">Pengaduan</a>
                 </div>
             </div>
         </nav>
@@ -105,7 +114,7 @@
         <div class="container-fluid feature overflow-hidden py-3">
             <div class="container py-0">
                 <div class="row g-5 justify-content-center">
-                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="price-item bg-light rounded text-center">
                             <div class="text-center text-primary border-bottom d-flex flex-column justify-content-center p-4"
                                 style="width: 100%; height: 160px;">
@@ -121,7 +130,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
+
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="price-item bg-light rounded text-center">
                             <div class="text-center text-primary border-bottom d-flex flex-column justify-content-center p-4"
                                 style="width: 100%; height: 160px;">
@@ -137,7 +147,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
+
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
                         <div class="price-item bg-light rounded text-center">
                             <div class="text-center text-secondary border-bottom d-flex flex-column justify-content-center p-4"
                                 style="width: 100%; height: 160px;">
@@ -150,6 +161,25 @@
                                 <p><i class="text-success me-1"></i> 08.30 - 11.00 WITA</p>
                                 <p><i class="fas fa-times text-danger me-1"></i> Sabtu</p>
                                 <p><i class=" text-success me-1"></i> Tutup</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
+                        <div class="price-item bg-light rounded text-center">
+                            <div class="text-center text-secondary border-bottom d-flex flex-column justify-content-center p-4"
+                                style="width: 100%; height: 160px;">
+                                <p class="fs-2 fw-bold text-uppercase mb-0">SAMSAT ANTAR JEMPUT</p>
+                                <p class="fs-6 text-muted mt-2">
+                                    <i class="fab fa-whatsapp text-success me-2"></i>WA Blast : 082194491771
+                                </p>
+                            </div>
+                            <div class="text-start p-5">
+                                <p><i class="fas fa-check text-success me-1"></i> Senin s.d Kamis</p>
+                                <p><i class="text-success me-1"></i> 08.00 - 14.00 WITA</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Jum'at</p>
+                                <p><i class="text-success me-1"></i> 08.00 - 11.00 WITA</p>
+                                <p><i class="fas fa-check text-success me-1"></i> Sabtu</p>
+                                <p><i class="text-success me-1"></i> 08.00 - 12.00 WITA </p>
                             </div>
                         </div>
                     </div>
