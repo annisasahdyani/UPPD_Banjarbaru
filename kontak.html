@@ -2,66 +2,231 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontak Kami</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <title>Unit Pelayanan Pendapatan Daerah Kota Banjarbaru</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <link rel="icon" type="image/png" href="img/samsat.png">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Rubik:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <section class="text-gray-600 body-font">
-        <form action="https://formspree.io/f/xanwkgzn" method="POST">
-            <div class="container px-5 py-24 mx-auto">
-                <div class="flex flex-col text-center w-full mb-12">
-                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
-                        Kontak kami
-                    </h1>
-                    <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
-                        Thank you for visiting our website. Let me know if you have something to say
-                    </p>
-                </div>
-                <div class="lg:w-1/3 w-full mx-auto px-8">
-                    <div class="relative flex-grow w-full">
-                        <label for="full-name" class="leading-7 text-sm text-gray-600">Full Name</label>
-                        <input type="text" id="full-name" name="full-name"
-                            class="w-full bg-white bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                    </div>
 
-                    <div class="relative flex-grow w-full">
-                        <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
-                        <input type="email" id="email" name="email"
-                            class="w-full bg-white-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                    </div>
+    <!-- Spinner Start -->
+    <div id="spinner"
+        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
 
-                    <div class="relative flex-grow w-full">
-                        <label for="subject" class="leading-7 text-sm text-gray-600">Subject</label>
-                        <input type="text" id="subject" name="subject"
-                            class="w-full bg-white-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-transparent focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" />
-                    </div>
 
-                    <div class="relative flex-grow w-full">
-                        <label for="message" class="leading-7 text-sm text-gray-600"
-                        >Message</label>
-                        <textarea 
-                        type="text" 
-                        id="message" 
-                        name="message" 
-                        class="w-full bg-white bg-opacity-50 rounded border 
-                        border-gray-300 focus:border-indigo-500 focus:bg-transparent 
-                        focus:ring-2 focus:ring-indigo-200 text-base outline-none 
-                        text-gray-700 py-1 px-3 leading-8 transition-colors 
-                        duration-200 ease-in-out">
-                    </textarea>
-                    </div>
+    <!-- Navbar & Hero Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-transparent px-4 px-lg-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <h1 class="display-6 text-primary m-0"> <img src="img/samsat.png" alt="Logo"> &nbsp;UPPD Banjarbaru</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Beranda</a>
 
-                    <button
-                    type="submit"
-                        class="mt-3 w-full text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">
-                        Send my message
-                    </button>
+                    <div class="nav-item dropdown">
+                        <a href="#profil" class="nav-link dropdown-toggle">Profil</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="motto.html" class="dropdown-item"> Motto </a>
+                            <a href="visimisi.html" class="dropdown-item"> Visi Misi </a>
+                            <a href="maklumat.html" class="dropdown-item"> Maklumat </a>
+                            <a href="sp.html" class="dropdown-item">  Standar Pelayanan </a>
+                            <a href="sop.html" class="dropdown-item"> SOP Pelayanan Kesamsatan </a>
+                            <a href="ikm.html" class="dropdown-item">  Indeks Kepuasan Masyarakat </a>
+                        </div>
+                    </div>
+                    <a href="jadwalpelayanan.html" class="nav-item nav-link ">Jadwal Pelayanan</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Pelayanan Kesamsatan</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="mutasi.html" class="dropdown-item"> Mutasi / Balik Nama</a>
+                            <a href="tahunan.html" class="dropdown-item"> Pajak Tahunan </a>
+                            <a href="5tahunan.html" class="dropdown-item"> Pajak 5 Tahunan</a>
+                            <a href="ubahnopol.html" class="dropdown-item"> Perubahan NOPOL BPKB</a>
+                            <a href="tarifPNBP.html" class="dropdown-item"> Tarif PNBP (Di Luar Pajak) </a>
+                            <a href="simulasiPKB.html" class="dropdown-item"> Simulasi Tunggakan PKB Non Progresif</a>
+                        </div>
+                    </div>
+                    <a href="detail.html" class="nav-item nav-link">Berita</a>
+                    <a href="kontak.html" class="nav-item nav-link active">Kontak</a>
+                    <a href="pengaduan.html" class="nav-item nav-link">Pengaduan</a>
                 </div>
             </div>
-        </form>
-    </section>
+        </nav>
+    </div>
+    <!-- Navbar & Hero End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-breadcrumb">
+        <ul class="breadcrumb-animation">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="container text-center py-2" style="max-width: 900px;">
+            <h3 class="display-3 mb-4 wow fadeInDown" data-wow-delay="0.1s">Kontak </h3>
+
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Konten Start -->
+    <!-- Hubungi Kami Section -->
+    <div class="container-fluid feature overflow-hidden py-3">
+        <div class="container py-0">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                <h1 class="display-5 mb-4"> Hubungi Kami </h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row gy-4 d-flex justify-content-center align-items-stretch">
+
+            <div class="col-lg-3 col-md-6">
+                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up"
+                    data-aos-delay="300"
+                    style="border: 1px solid #ddd; padding: 20px; border-radius: 10px; background-color: #f9f9f9; text-align: center; height: 100%;">
+                    <i class="bi bi-telephone" style="font-size: 40px"></i>
+                    <h3>Informasi</h3>
+                    <p>(0511) 591 678 6 Hanya Informasi<br>0821-9449-1771 WhatsApp Blast</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <a href="https://www.instagram.com/samsatbjb.info" target="_blank"
+                    class="info-item link-no-change d-flex flex-column justify-content-center align-items-center"
+                    data-aos="fade-up" data-aos-delay="300"
+                    style="border: 1px solid #ddd; padding: 20px; border-radius: 10px; background-color: #f9f9f9; text-align: center; height: 100%;">
+                    <i class="bi bi-instagram" style="font-size: 40px"></i>
+                    <h3>Instagram</h3>
+                    <p>@samsatbjb.info</p>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <a href="https://www.facebook.com/samsat.banjarbaru.73/" target="_blank"
+                    class="info-item link-no-change d-flex flex-column justify-content-center align-items-center"
+                    data-aos="fade-up" data-aos-delay="300"
+                    style="border: 1px solid #ddd; padding: 20px; border-radius: 10px; background-color: #f9f9f9; text-align: center; height: 100%;">
+                    <i class="bi bi-facebook" style="font-size: 40px"></i>
+                    <h3>Facebook</h3>
+                    <p>Samsat Banjarbaru</p>
+                </a>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="info-item d-flex flex-column justify-content-center align-items-center" data-aos="fade-up"
+                    data-aos-delay="400"
+                    style="border: 1px solid #ddd; padding: 20px; border-radius: 10px; background-color: #f9f9f9; text-align: center; height: 100%;">
+                    <i class="bi bi-envelope" style="font-size: 40px"></i>
+                    <h3>Email</h3>
+                    <p>samsatbjbinfo@gmail.com</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Lokasi Section -->
+    <div class="container-fluid feature overflow-hidden py-5"> <!-- Kurangi padding atas/bawah -->
+        <div class="container py-0">
+            <div class="text-center mx-auto mb-3 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
+                <h1 class="display-5 mb-2"> Alamat </h1> <!-- Kurangi margin bawah -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-3" data-aos="fade-up" data-aos-delay="100"> <!-- Kurangi margin bawah -->
+        <div class="row gy-4 mt-2"> <!-- Kurangi margin atas -->
+            <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31873.932506158227!2d114.81530701729147!3d-3.439458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de68174b1f3778d%3A0x4ab5b45170233731!2sSamsat%20Banjarbaru!5e0!3m2!1sen!2sid!4v1693998889273!5m2!1sen!2sid"
+                    frameborder="0" style="border:0; width: 100%; height: 400px;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Konten End -->
+
+
+    <!-- Copyright Start -->
+
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row g-4 justify-content-center">
+                <div class="col-12 text-center">
+                    <span class="text-white">&copy; 2024 - Unit Pelayanan Pendapatan Daerah Kota Banjarbaru</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
 </body>
+
 </html>

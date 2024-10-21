@@ -52,16 +52,19 @@
                     <a href="#beranda" class="nav-item nav-link active">Beranda</a>
 
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">Profil</a>
+                        <a href="" class="nav-link dropdown-toggle">Profil</a>
                         <div class="dropdown-menu m-0">
                             <a href="motto.html" class="dropdown-item"> Motto </a>
                             <a href="visimisi.html" class="dropdown-item"> Visi Misi </a>
                             <a href="maklumat.html" class="dropdown-item"> Maklumat </a>
+                            <a href="sp.html" class="dropdown-item"> Standar Pelayanan </a>
+                            <a href="sop.html" class="dropdown-item"> SOP Pelayanan Kesamsatan </a>
+                            <a href="ikm.html" class="dropdown-item"> Indeks Kepuasan Masyarakat </a>
                         </div>
                     </div>
                     <a href="#jadwalpelayanan" class="nav-link">Jadwal Pelayanan</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle">Pelayanan Kesamsatan</a>
+                        <a href="" class="nav-link dropdown-toggle">Pelayanan Kesamsatan</a>
                         <div class="dropdown-menu m-0">
                             <a href="mutasi.html" class="dropdown-item"> Mutasi / Balik Nama</a>
                             <a href="tahunan.html" class="dropdown-item"> Pajak Tahunan </a>
@@ -81,7 +84,7 @@
 
 
         <!-- Hero Header Start -->
-        <section id="beranda" class="hero section dark-background" style="margin-top: 80px; margin-bottom: 20px;">
+        <section id="beranda" class="hero section dark-background" style="margin-bottom: 20px;">
             <div class="info d-flex align-items-center" data-aos="fade-up">
                 <img src="img/gedungsamsat.jpeg" alt="" style="opacity: 0.5; width: 100%; z-index: 1;">
                 <div
@@ -91,11 +94,45 @@
 
             <div
                 style="position: absolute; top: 35%; left: 45%; transform: translate(-45%, -45%); text-align: center; z-index: 3;">
-                <h1 style="color: rgb(255, 255, 255); font-size: 48px;">Selamat Datang di Website Resmi</h1>
-                <h1 style="color: rgb(255, 255, 255); font-size: 48px;">UPPD Banjarbaru</h1>
+                <h1 class="responsive-text" style="color: #fff;">Selamat Datang di Website Resmi</h1>
+                <h1 class="responsive-text" style="color: #fff;">UPPD Banjarbaru</h1>
             </div>
-
         </section>
+
+        <style>
+            /* Margin top default untuk layar besar */
+            #beranda {
+                margin-top: 80px;
+                /* Margin default untuk laptop */
+            }
+
+            /* Media query untuk layar kecil (handphone) */
+            @media (max-width: 576px) {
+                #beranda {
+                    margin-top: 0px;
+                    /* Mengurangi margin top di layar kecil */
+                }
+            }
+
+            /* Responsif dengan vw dan line-height untuk jarak antar baris */
+            .responsive-text {
+                font-size: 4vw;
+                /* Ukuran font dinamis berdasarkan lebar viewport */
+                line-height: 1.2;
+                /* Mengatur jarak antar baris agar tidak terlalu rapat */
+            }
+
+            /* Media query untuk menyesuaikan pada layar yang sangat kecil */
+            @media (max-width: 576px) {
+                .responsive-text {
+                    font-size: 6vw;
+                    /* Menambah ukuran font untuk layar kecil */
+                    line-height: 1.3;
+                    /* Jarak antar baris sedikit lebih besar di layar kecil */
+                }
+            }
+        </style>
+
         <!-- Hero Header End -->
     </div>
     <!-- Navbar & Hero End -->
@@ -145,45 +182,6 @@
                 </div>
             </div>
         </div>
-
-
-        <!-- Visi Misi Start -->
-        <!--
-        <div class="container-fluid overflow-hidden py-5" style="margin-top: 6rem;">
-            <div class="container py-5">
-                <h4 class="text-center  mb-1 text-primary">Visi Misi</h4>
-                <h1 class="text-center  display-5 mb-4">Samsat Banjarbaru</h1>
-                <div class="row g-5">
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="RotateMoveLeft">
-                            <img src="img/about-1.png" class="img-fluid w-100" alt="">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <h1 class="display-5 mb-2"> Visi</h1>
-                        <p class="mb-4">Terwujudnya Pelayanan Prima Demi Kepuasan Masyarakat </p>
-                        <h1 class="display-5 mb-2"> Misi</h1>
-                        <p class="mb-1" style="text-align: justify;">a. Menyediakan pelayanan kepada masyarakat pemilik
-                            kendaraan bermotor dalam pengurusan STNK, pembayaran PKB/BBNKB dan SWDKLLJ secara cepat,
-                            tepat
-                            dan benar serta berpedoman kepada ketentuan yang berlaku. </p>
-                        <p class="mb-1" style="text-align: justify;">b. Menyelenggarakan tertib administrasi dokumen
-                            secara
-                            baik benar dan akurat dalam rangka menjamin kepastian hukum kepemilikan dan identitas data
-                            kendaraan bermotor. </p>
-                        <p class="mb-1" style="text-align: justify;">c. Menyajikan data sebagai bahan informasi tentang
-                            identitas kepemilikan kendaraan bermotor, nilai PKB/BBNKB dan SWDKLLJ kendaraan bermotor
-                            yang
-                            diperlukan untuk pengambilan keputusan. </p>
-                        <p class="mb-1" style="text-align: justify;">d. Melakukan upaya meningkatkan untuk layanan
-                            melalui
-                            perbaikan saran dan prasarana, sistem komputerisasi serta pengembangan SDM. </p>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- Visi Misi End -->
-
 
         <!-- Motto Start -->
         <div class="container-fluid service py-5">
@@ -580,7 +578,7 @@
     </section>
 
 
-<!-- Pengaduan Section -->
+    <!-- Pengaduan Section -->
     <section id="pengaduan" class="pengaduan section">
         <div class="container py-5">
             <div class="text-center mx-auto mb-5 mt-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
@@ -596,8 +594,7 @@
                             <div class="row gy-4">
 
                                 <div class="col-md-6">
-                                    <input type="text" name="name" class="form-control" placeholder="Nama"
-                                        required="">
+                                    <input type="text" name="name" class="form-control" placeholder="Nama" required="">
                                 </div>
 
                                 <div class="col-md-6">
@@ -616,7 +613,8 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-light rounded-pill text-primary py-2 px-4">Kirim Pesan
+                                    <button type="submit"
+                                        class="btn btn-light rounded-pill text-primary py-2 px-4">Kirim Pesan
                                     </button>
                                 </div>
 
@@ -643,7 +641,7 @@
 
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+    <a href="#beranda" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
