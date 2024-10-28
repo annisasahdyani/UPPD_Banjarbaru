@@ -1,3 +1,6 @@
+
+
+
 // Mendapatkan semua elemen navbar dengan class 'nav-link'
 const navLinks = document.querySelectorAll('.nav-link');
 
