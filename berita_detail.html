@@ -1,220 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Detail Berita</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Rubik:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Icon Font Stylesheet -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet" />
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet" />
 
-    <style>
-      body {
-        font-family: "Plus Jakarta Sans", sans-serif;
-        background-color: #f5f5f5;
-        margin-top: 80px;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Berita</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Google Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Rubik:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <!-- Icon Font Stylesheet -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Libraries Stylesheet -->
+  <link href="lib/animate/animate.min.css" rel="stylesheet" />
+  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+  <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+  <!-- Customized Bootstrap Stylesheet -->
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Template Stylesheet -->
+  <link href="css/style.css" rel="stylesheet" />
 
+  <style>
+    body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background-color: #f5f5f5;
+      margin-top: 80px;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      max-width: 900px;
+      margin: 30px auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    #judul-berita {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    #tanggal-berita {
+      color: #888;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    #gambar-berita {
+      display: block;
+      max-width: 100%;
+      max-height: 350px;
+      object-fit: cover;
+      /* Gambar tetap proporsional */
+      margin: 0 auto 20px auto;
+      border-radius: 8px;
+    }
+
+    #isi-berita {
+      line-height: 1.8;
+      color: #555;
+      font-size: 1.1rem;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
       .container {
-        background-color: #fff;
-        padding: 20px;
-        max-width: 900px;
-        margin: 30px auto;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
+        padding: 15px;
       }
 
       #judul-berita {
-        font-size: 2.5rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-        color: #333;
+        font-size: 2rem;
       }
+    }
+  </style>
+</head>
 
-      #tanggal-berita {
-        color: #888;
-        font-size: 1rem;
-        margin-bottom: 20px;
-      }
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top navbar-light px-4 px-lg-5 py-3 py-lg-0">
+    <div class="container-fluid">
+      <a href="index.html" class="navbar-brand">
+        <h1 class="display-6 text-primary m-0">
+          <img src="img/samsat.png" alt="Logo" style="max-height: 40px" />
+          &nbsp;UPPD Banjarbaru
+        </h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="fa fa-bars"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ms-auto py-0">
+          
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">Beranda</a>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Profil</a>
+            <ul class="dropdown-menu">
+              <li> <a href="motto.html" class="dropdown-item">Motto</a> </li>
+              <li> <a href="visimisi.html" class="dropdown-item">Visi Misi</a> </li>
+              <li> <a href="maklumat.html" class="dropdown-item">Maklumat</a> </li>
+              <li> <a href="struktur.html" class="dropdown-item"> Struktur Organisasi </a> </li>
+              <li> <a href="jenispelayanan.html" class="dropdown-item"> Jenis Pelayanan </a> </li>
+              <li> <a href="sp.html" class="dropdown-item"> Standar Pelayanan </a> </li>
+              <li> <a href="sop.html" class="dropdown-item"> SOP Pelayanan Kesamsatan </a> </li>
+              <li> <a href="ikm.html" class="dropdown-item"> Indeks Kepuasan Masyarakat </a> </li>
+            </ul>
+          </li>
 
-      #gambar-berita {
-        display: block;
-        max-width: 100%;
-        max-height: 350px;
-        object-fit: cover; /* Gambar tetap proporsional */
-        margin: 0 auto 20px auto;
-        border-radius: 8px;
-      }
+          <li class="nav-item">
+            <a href="jadwalpelayanan.html" class="nav-link">Jadwal Pelayanan</a>
+          </li>
 
-      #isi-berita {
-        line-height: 1.8;
-        color: #555;
-        font-size: 1.1rem;
-      }
-
-      .footer {
-        text-align: center;
-        margin-top: 40px;
-        font-size: 0.9rem;
-        color: #aaa;
-      }
-
-      @media (max-width: 768px) {
-        .container {
-          padding: 15px;
-        }
-
-        #judul-berita {
-          font-size: 2rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Navbar -->
-    <nav
-      class="navbar navbar-expand-lg fixed-top navbar-light px-4 px-lg-5 py-3 py-lg-0"
-    >
-      <div class="container-fluid">
-        <a href="index.html" class="navbar-brand">
-          <h1 class="display-6 text-primary m-0">
-            <img src="img/samsat.png" alt="Logo" style="max-height: 40px" />
-            &nbsp;UPPD Banjarbaru
-          </h1>
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
-        >
-          <span class="fa fa-bars"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav ms-auto py-0">
-            <li class="nav-item">
-              <a href="index.html" class="nav-link active">Beranda</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                href="#"
-                class="nav-link dropdown-toggle"
-                data-bs-toggle="dropdown"
-                >Profil</a
-              >
-              <ul class="dropdown-menu">
-                <li><a href="motto.html" class="dropdown-item">Motto</a></li>
-                <li>
-                  <a href="visimisi.html" class="dropdown-item">Visi Misi</a>
-                </li>
-                <li>
-                  <a href="maklumat.html" class="dropdown-item">Maklumat</a>
-                </li>
+          <li class="nav-item dropdown">
+            <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pelayanan Kesamsatan </a>
+            <ul class="dropdown-menu">
+              <li> <a href="mutasi.html" class="dropdown-item"> Mutasi / Balik Nama</a> </li>
+              <li> <a href="tahunan.html" class="dropdown-item"> Pajak Tahunan </a> </li>
+              <li> <a href="5tahunan.html" class="dropdown-item"> Pajak 5 Tahunan</a> </li>
+              <li> <a href="ubahnopol.html" class="dropdown-item"> Perubahan NOPOL BPKB</a> </li>
+              <li> <a href="tarifPNBP.html" class="dropdown-item"> Tarif PNBP (Di Luar Pajak) </a> </li>
+              <li> <a href="simulasiPKB.html" class="dropdown-item"> Simulasi Tunggakan PKB Non Progresif</a> </li>
+              <li> <a href="pap.html" class="dropdown-item"> Pajak Air Permukaan </a> </li>
+              <li> <a href="pab.html" class="dropdown-item"> Pajak Alat Berat </a></li>
               </ul>
-            </li>
-            <li class="nav-item">
-              <a href="#jadwalpelayanan" class="nav-link">Jadwal Pelayanan</a>
-            </li>
-            <li class="nav-item">
-              <a href="detail.html" class="nav-link">Berita</a>
-            </li>
-            <li class="nav-item">
-              <a href="#kontak" class="nav-link">Kontak</a>
-            </li>
-          </ul>
-        </div>
+          </li>
+
+          <li class="nav-item">
+            <a href="detail.html" class="nav-link active">Berita</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="kontak.html" class="nav-link">Kontak</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="pengaduan.html" class="nav-link"> Pengaduan</a>
+          </li>
+
+        </ul>
       </div>
-    </nav>
-
-    <!-- Konten Detail Berita -->
-    <div class="container">
-      <h1 id="judul-berita"></h1>
-      <p id="tanggal-berita"></p>
-      <img id="gambar-berita" src="" alt="Berita" class="img-fluid" />
-      <div id="isi-berita"></div>
     </div>
+  </nav>
 
-    <div class="footer">
-      <p>&copy; 2024 UPPD Banjarbaru</p>
-    </div>
+  <!-- Konten Detail Berita -->
+  <div class="container">
+    <h1 id="judul-berita"></h1>
+    <p id="tanggal-berita"></p>
+    <img id="gambar-berita" src="" alt="Berita" class="img-fluid" />
+    <div id="isi-berita"></div>
+  </div>
 
-    <script>
-      // Fungsi untuk mengambil parameter dari URL
-      function getQueryParam(param) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
-      }
+  <div class="footer">
+    <p>&copy; 2024 UPPD Banjarbaru</p>
+  </div>
 
-      // Fungsi untuk mengambil detail berita berdasarkan ID
-      function getBeritaDetail() {
-        const beritaId = getQueryParam("id"); // Ambil ID dari query parameter
+  <script>
+    // Fungsi untuk mengambil parameter dari URL
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
 
-        fetch(`http://127.0.0.1:8000/api/berita/${beritaId}`)
-          .then((response) => response.json())
-          .then((berita) => {
-            // Tampilkan detail berita di halaman
-            document.querySelector("#judul-berita").textContent =
-              berita.judul_berita;
-            document.querySelector("#isi-berita").innerHTML = berita.isi_berita;
-            document.querySelector("#tanggal-berita").textContent = new Date(
-              berita.tanggal
-            ).toLocaleDateString("id-ID", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            });
+    // Fungsi untuk mengambil detail berita berdasarkan ID
+    function getBeritaDetail() {
+      const beritaId = getQueryParam("id"); // Ambil ID dari query parameter
 
-            // Menampilkan gambar dengan pengecekan apakah ada gambar
-            const gambarElement = document.querySelector("#gambar-berita");
-            if (berita.gambar) {
-              gambarElement.src = `http://127.0.0.1:8000/api/getImage?gambar=${berita.gambar}`;
-              gambarElement.alt = berita.judul_berita;
-            } else {
-              gambarElement.alt = "Gambar tidak tersedia";
-              gambarElement.src = "path/to/default-image.jpg"; // Gambar default jika tidak ada
-            }
-          })
-          .catch((error) => console.error("Error:", error));
-      }
+      fetch(`http://127.0.0.1:8000/api/berita/${beritaId}`)
+        .then((response) => response.json())
+        .then((berita) => {
+          // Tampilkan detail berita di halaman
+          document.querySelector("#judul-berita").textContent =
+            berita.judul_berita;
+          document.querySelector("#isi-berita").innerHTML = berita.isi_berita;
+          document.querySelector("#tanggal-berita").textContent = new Date(
+            berita.tanggal
+          ).toLocaleDateString("id-ID", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          });
 
-      // Panggil fungsi untuk mendapatkan detail berita saat halaman dimuat
-      window.onload = getBeritaDetail;
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+          // Menampilkan gambar dengan pengecekan apakah ada gambar
+          const gambarElement = document.querySelector("#gambar-berita");
+          if (berita.gambar) {
+            gambarElement.src = `http://127.0.0.1:8000/api/getImage?gambar=${berita.gambar}`;
+            gambarElement.alt = berita.judul_berita;
+          } else {
+            gambarElement.alt = "Gambar tidak tersedia";
+            gambarElement.src = "path/to/default-image.jpg"; // Gambar default jika tidak ada
+          }
+        })
+        .catch((error) => console.error("Error:", error));
+    }
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+    // Panggil fungsi untuk mendapatkan detail berita saat halaman dimuat
+    window.onload = getBeritaDetail;
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/lightbox/js/lightbox.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
 </html>

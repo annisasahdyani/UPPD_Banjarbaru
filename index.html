@@ -66,7 +66,7 @@
                     </div>
 
                     <a href="#jadwalpelayanan" class="nav-link">Jadwal Pelayanan</a>
-                    
+
                     <div class="nav-item dropdown">
                         <a href="" class="nav-link dropdown-toggle">Pelayanan Kesamsatan</a>
                         <div class="dropdown-menu m-0">
@@ -76,6 +76,8 @@
                             <a href="ubahnopol.html" class="dropdown-item"> Perubahan NOPOL BPKB</a>
                             <a href="tarifPNBP.html" class="dropdown-item"> Tarif PNBP (Di Luar Pajak) </a>
                             <a href="simulasiPKB.html" class="dropdown-item"> Simulasi Tunggakan PKB Non Progresif</a>
+                            <a href="pap.html" class="dropdown-item"> Pajak Air Permukaan </a>
+                            <a href="pab.html" class="dropdown-item"> Pajak Alat Berat </a>
                         </div>
                     </div>
 
@@ -89,20 +91,12 @@
 
 
         <!-- Hero Header Start -->
-        <section id="beranda" class="hero section dark-background" style="margin-bottom: 20px;">
-            <div class="info d-flex align-items-center" data-aos="fade-up">
-                <img src="img\newsamsat.jpeg" alt="" style="opacity: 0.5; width: 100%; z-index: 1;">
-                <div
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 2;">
-                </div>
-            </div>
-
-            <div
-                style="position: absolute; top: 35%; left: 45%; transform: translate(-45%, -45%); text-align: center; z-index: 3;">
-                <h1 class="responsive-text" style="color: #fff;">Selamat Datang di Website Resmi</h1>
-                <h1 class="responsive-text" style="color: #fff;">UPPD Banjarbaru</h1>
+        <section id="beranda" class="dark-background" style="margin-bottom: 0px;">
+            <div class="info d-flex align-items-center justify-content-center" data-aos="fade-up">
+                <img src="img/cover.png" alt="cover" class="cover-img">
             </div>
         </section>
+
 
         <style>
             /* Margin top default untuk layar besar */
@@ -111,20 +105,35 @@
                 /* Margin default untuk laptop */
             }
 
+            /* Responsif gambar */
+            #beranda .info img {
+                width: 100%;
+                /* Mengisi seluruh lebar kontainer */
+                height: auto;
+                /* Menjaga proporsi gambar */
+                max-width: 100%;
+                /* Batas maksimum agar tidak meluas */
+                object-fit: cover;
+                /* Menghindari distorsi */
+                border-radius: 10px;
+                /* Opsional: Membuat sudut gambar membulat */
+            }
+
             /* Media query untuk layar kecil (handphone) */
             @media (max-width: 576px) {
                 #beranda {
                     margin-top: 0px;
                     /* Mengurangi margin top di layar kecil */
+                    margin-bottom: 0px;
+                    /* Menambahkan margin bawah yang kecil di layar kecil */
                 }
-            }
 
-            /* Responsif dengan vw dan line-height untuk jarak antar baris */
-            .responsive-text {
-                font-size: 4vw;
-                /* Ukuran font dinamis berdasarkan lebar viewport */
-                line-height: 1.2;
-                /* Mengatur jarak antar baris agar tidak terlalu rapat */
+                .responsive-text {
+                    font-size: 4vw;
+                    /* Menambah ukuran font untuk layar kecil */
+                    line-height: 1.2;
+                    /* Jarak antar baris sedikit lebih besar di layar kecil */
+                }
             }
 
             /* Media query untuk menyesuaikan pada layar yang sangat kecil */
@@ -137,18 +146,17 @@
                 }
             }
         </style>
-
         <!-- Hero Header End -->
     </div>
     <!-- Navbar & Hero End -->
 
-    <!-- Struktural UPPD Banjarbaru Start -->
+    <!-- Struktural Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
             <h4 class="text-center  mb-1 text-primary">Struktur</h4>
             <h1 class="text-center  display-5 mb-4">Pejabat Struktural</h1>
             <div class="container py-3">
-                <!-- Kotak Atas (Satu kotak besar) -->
+                
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                     <div class="p-4 mb-4 bg-light rounded">
                         <img src="img\Bapak Bayu.JPG" class="img-fluid mb-3" alt="Pejabat Atas"
@@ -158,7 +166,6 @@
                     </div>
                 </div>
 
-                <!-- Kotak Bawah (Tiga kotak kecil) -->
                 <div class="row g-4 justify-content-center text-center">
                     <div class="col-12 col-md-4 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="p-4 mb-4 bg-light rounded">
@@ -187,6 +194,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Struktural End -->
 
         <!-- Motto Start -->
         <div class="container-fluid service py-5">
@@ -341,9 +350,9 @@
             </div>
         </div>
     </section>
-
     <!-- Jadwal Pelayanan End -->
 
+    <!-- Berita Start -->
     <section id="berita">
         <div class="container-fluid blog py-5">
             <div class="container py-5">
@@ -419,13 +428,13 @@
         window.onload = getBerita;
 
     </script>
+    <!-- Berita End -->
 
 
-    <!-- Contact Section -->
+    <!-- Contact Start -->
     <section id="kontak" class="contact section">
         <div class="container py-5">
 
-            <!-- Kontak Kami Section -->
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                 <h4 class="text-primary">Hubungi Kami</h4>
                 <h1 class="display-5 mb-4" style="text-align: center;">Kontak</h1>
@@ -476,11 +485,6 @@
                 </div>
             </div>
 
-            <!-- Lokasi Section -->
-            <!-- <div class="text-center mx-auto mb-5 mt-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
-                <h4 class="text-primary">Lokasi</h4>
-                <h1 class="display-5 mb-4" style="text-align: center;">Lokasi Kami</h1>
-            </div> -->
             <div class="container" data-aos="fade-up" data-aos-delay="100">
                 <div class="row gy-4 mt-1">
                     <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
@@ -493,9 +497,10 @@
             </div>
         </div>
     </section>
+     <!-- Contact End -->
 
 
-    <!-- Pengaduan Section -->
+    <!-- Pengaduan Start -->
     <section id="pengaduan" class="pengaduan section">
         <div class="container py-5">
             <div class="text-center mx-auto mb-5 mt-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
@@ -542,7 +547,7 @@
             </div>
         </div>
     </section>
-    <!-- /Contact Section -->
+    <!-- Pengaduan End -->
 
     <!-- Footer Start -->
     <div class="container-fluid copyright py-4">
