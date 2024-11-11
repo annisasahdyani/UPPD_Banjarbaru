@@ -119,6 +119,24 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <script>
+      function deleteBerita(id) {
+        if (confirm("Apakah Anda yakin ingin menghapus berita ini?")) {
+          axios
+            .delete(`http://127.0.0.1:8000/api/delete/${id}`) // Sesuaikan URL dengan endpoint API Anda
+            .then(function (response) {
+              if (response.data.success) {
+                alert("Berita berhasil dihapus.");
+                fetchBerita(); // Refresh tabel berita setelah penghapusan
+              } else {
+                alert("Gagal menghapus berita: " + response.data.message);
+              }
+            })
+            .catch(function (error) {
+              console.error("Error deleting berita:", error.response);
+              alert("Terjadi kesalahan: " + error.response.data.message);
+            });
+        }
+      }
       // Function to create pagination
       function createPagination(meta) {
         const paginationContainer = document.getElementById("pagination");
