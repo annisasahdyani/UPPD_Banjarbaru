@@ -91,7 +91,7 @@
                 localStorage.setItem("token", response.data.token);
 
                 // Arahkan user ke halaman dashboard atau lainnya
-                window.location.href = "index.html";
+                window.location.href = "admin.html";
               } else if(response.data.false) {
                 // Tampilkan pesan error
                 document.getElementById("errorMessage").textContent =
