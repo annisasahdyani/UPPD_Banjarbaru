@@ -88,15 +88,11 @@
               // Cek apakah login berhasil
               if (response.data.success) {
                 // Simpan token ke localStorage atau sessionStorage
-                
                 localStorage.setItem("token", response.data.token);
 
                 // Arahkan user ke halaman dashboard atau lainnya
                 window.location.href = "admin.html";
-
-              } else if (response.data.false) {
-
-              } else if(response.data.false) {
+              } else {
                 // Tampilkan pesan error
                 document.getElementById("errorMessage").textContent =
                   "Login gagal, periksa kembali email dan password Anda.";
