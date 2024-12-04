@@ -75,7 +75,7 @@
               <a class="nav-link" href="admin.html">Lihat Berita</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="logout.html">Logout</a>
+              <a class="nav-link" href="#" onclick="logout()">Logout</a>
             </li>
           </ul>
         </div>
@@ -231,6 +231,41 @@
       document.addEventListener("DOMContentLoaded", function () {
         fetchBerita(); // Memuat halaman pertama secara default
       });
+
+      // Fungsi logout
+      function logout() {
+        const token = localStorage.getItem("token"); // Ambil token dari storage
+
+        if (!token) {
+          alert("Kamu belum login!");
+          return;
+        }
+
+        axios
+          .post(
+            "http://127.0.0.1:8000/api/logout",
+            {},
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
+          .then(function (response) {
+            if (response.data.success) {
+              // Hapus token dari localStorage
+              localStorage.removeItem("token");
+
+              // Tampilkan pesan sukses
+              alert("Logout berhasil!");
+              window.location.href = "/login.html"; // Redirect ke halaman login
+            }
+          })
+          .catch(function (error) {
+            console.error("Error:", error);
+            alert("Terjadi kesalahan saat logout.");
+          });
+      }
     </script>
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
